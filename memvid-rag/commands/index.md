@@ -25,6 +25,6 @@ with use("basic", "knowledge.mv2", mode="auto", read_only=False) as mv:
         label=document_label,
         metadata={'source':file_path},
         file=file_path,
-        embedding='embed-v4.0'
+        embedding_model='embed-v4.0'
     )
 ```

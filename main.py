@@ -1,6 +1,10 @@
-def main():
-    print("Hello from sample-project!")
+from memvid_sdk import create, use
 
 
 if __name__ == "__main__":
-    main()
+    with use("basic", "knowledge.mv2", mode="auto", enable_vec=True, read_only=True) as mv:
+        stat = mv.stats()
+        answer = mv.ask(
+            'Qualcomm',
+            mode='hybrid'
+        )
