@@ -10,8 +10,10 @@ dependencies = [
     "unstructured>=0.12.0",
     "tiktoken>=0.5.0",
     "anthropic>=0.18.0",
+    "pymupdf>=1.26.7",
+    "cohere>=5.20.1",
 ]
 
 [[tool.uv.index]]
-url = "http://10.10.12.57:9000/repository/pypi-repos/simple"
+url = "https://pypi.org/simple/"
 default = true

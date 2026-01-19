@@ -3,20 +3,28 @@ description: Index files or directories into the RAG memory system using Memvid
 ---
 
 # index
+Index file or directory.
+We currently supports only .pdf files
+Before indexing documents, check if index file(`knowledge.mv2`) exist.
+if not, create index before put documents
 
-Index file or directory. Use .venv if it exist on project directory
-It is currently under development, so you have to run below python script only.
-DO NOT RUN ANTHING EXECPT BELOW PYTHON SCRIPT!
+## Semantic search
+We currently uses semantic search for multimodality.
+Embedding model would be `embed-v4.0` from cohere(Requires `COHERE_API_KEY` be setted).
 
-## Python Script
+## How to
+You first have to inspect the pdf file and get title and label to use.
+and then put document using below python script
 ```python
 import os
 from memvid_sdk import use
 
 with use("basic", "knowledge.mv2", mode="auto", read_only=False) as mv:
     mv.put(
-        title="Contract Summary",
-        label="legal",
-        text="Key terms: 2-year agreement, auto-renewal clause."
+        title=document_title,
+        label=document_label,
+        metadata={'source':file_path},
+        file=file_path,
+        embedding='embed-v4.0'
     )
 ```

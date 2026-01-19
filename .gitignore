@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# test data
+sample/
+knowledge.mv2
