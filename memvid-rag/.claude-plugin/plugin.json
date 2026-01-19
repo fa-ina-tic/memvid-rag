@@ -1,0 +1,12 @@
+{
+  "name": "memvid-rag",
+  "version": "0.0.1",
+  "description": "Simple Local RAG based on memvid",
+  "author": {
+    "name": "Soomin Lee",
+    "email": "sooh0601@gmail.com",
+    "url": "https://github.com/fa-ina-tic"
+  },
+  "repository": "https://github.com/fa-ina-tic/memvid-rag",
+  "license": "MIT"
+}
