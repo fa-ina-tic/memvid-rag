@@ -6,7 +6,16 @@ These skills follow the [Agent Skills](https://agent-skills.pages.dev/) specific
 
 ## Installation
 
-### Claude Code
+### Marketplace (Recommended)
+
+Install via Claude Code plugin marketplace:
+
+```
+/plugin marketplace add fa-ina-tic/memvid-rag
+/plugin install memvid-rag@memvid-rag-skills
+```
+
+### Claude Code (Manual)
 
 Place the contents of this repository in a `/.claude` folder at your project root. See the [Claude Skills documentation](https://docs.anthropic.com/en/docs/claude-code/skills) for details.
 
