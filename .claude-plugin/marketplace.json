@@ -1,0 +1,14 @@
+{
+  "name": "memvid-rag-skills",
+  "owner": {
+    "name": "Soomin Lee"
+  },
+  "plugins": [
+    {
+      "name": "memvid-rag",
+      "source": "./",
+      "description": "Claude Skills for Local RAG using memvid",
+      "version": "1.0.0"
+    }
+  ]
+}
