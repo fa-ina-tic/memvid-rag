@@ -71,34 +71,3 @@ set COHERE_API_KEY=your-api-key-here
 ```bash
 export COHERE_API_KEY="your-api-key-here"
 ```
-
-### Error Handling
-**NEW**: The indexing script now includes validation to ensure vector embeddings are created:
-
-If vector embeddings fail, you will see an error like:
-```
-RuntimeError: Vector embeddings were not created!
-vec_index_bytes: 8 (should be > 8).
-This usually means:
-  1. COHERE_API_KEY environment variable is not set
-  2. The embedding model 'embed-v4.0' failed
-  3. The embedding service is unavailable
-Please set COHERE_API_KEY and try again.
-```
-
-**What Changed**: Previously, the script would silently fall back to lexical-only indexing if embeddings failed. Now it **fails fast** with a clear error message, ensuring you know immediately if vector embeddings aren't working.
-
-## Response Format
-On successful indexing with vector embeddings, you will see:
-```
-✓ Successfully indexed 'Document Title'
-  - Frames added: 90
-  - Vector index size: 245678 bytes (grew by 245670 bytes)
-  - Embedding model: {'kind': 'cohere', 'model': 'embed-v4.0'}
-```
-
-- Confirmation that the document was indexed
-- Number of frames (chunks) added
-- Vector index growth (proves embeddings were created)
-- Embedding model information
-- Include timestamps for referenced information
