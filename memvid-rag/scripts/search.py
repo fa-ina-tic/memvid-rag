@@ -4,7 +4,6 @@ from memvid_sdk import use
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-
 def search(query: str, **kwargs):
     with use("basic", "knowledge.mv2", mode="auto", enable_vec=True, read_only=True) as mv:
         ## mv.find function info:
