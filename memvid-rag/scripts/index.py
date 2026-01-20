@@ -5,24 +5,39 @@ from memvid_sdk import use
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 def index(document_title: str, document_label: str, file_path: str, **kwargs):
-    with use("basic", "knowledge.mv2", mode="auto", read_only=False) as mv:
+    """
+    Index a document into the knowledge base with vector embeddings.
+
+    Args:
+        document_title: Title of the document
+        document_label: Label/category for the document
+        file_path: Path to the file to index
+        **kwargs: Additional arguments (e.g., embedder, enable_embedding)
+
+    Raises:
+        RuntimeError: If vector embeddings are not enabled or fail to be created
+    """
+    # Index the document with explicit embedding enabled
+    with use("basic", "knowledge.mv2", mode="auto", read_only=False, enable_vec=True, enable_lex=True) as mv:
+        # Ensure embedding is explicitly enabled
         mv.put(
             title=document_title,
             label=document_label,
-            metadata={'source':file_path},
+            metadata={'source': file_path},
             file=file_path,
-            embedding_model='embed-v4.0',
-            **kwargs
+            embedder=kwargs.get('embedder', 'embed-v4.0'),
+            enable_embedding=True,  # Explicitly enable embeddings
+            **{k: v for k, v in kwargs.items() if k != 'embedding_model'}
         )
 
 if __name__ == "__main__":
-    if len(sys.argv) < 5:
+    if len(sys.argv) < 4:
         print("Usage: python scripts/index.py <document_title> <document_label> <file_path>")
         sys.exit(1)
-    
-    # Parse query and kwargs from command line arguments
+
+    # Parse required arguments and optional kwargs from command line arguments
     args = sys.argv[1:]
-    query_parts = []
+    required_args = []
     kwargs = {}
 
     for arg in args:
@@ -42,7 +57,10 @@ if __name__ == "__main__":
                 # Parse --key format (boolean flag)
                 kwargs[arg[2:]] = True
         else:
-            query_parts.append(arg)
+            required_args.append(arg)
 
-    query = " ".join(query_parts)
-    results = index(query, **kwargs)
+    document_title = required_args[0]
+    document_label = required_args[1]
+    file_path = required_args[2]
+
+    index(document_title, document_label, file_path, **kwargs)

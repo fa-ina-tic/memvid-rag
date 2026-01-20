@@ -10,7 +10,7 @@ Show the current status of the RAG system.
 
 ```python
 import os
-from memvid-sdk import use
+from memvid_sdk import use
 
 with use("basic", "knowledge.mv2", mode="open", read_only=True) as mv:
     stats = mv.stats()

@@ -11,4 +11,4 @@ wheels/
 
 # test data
 sample/
-knowledge.mv2
+*.mv2
