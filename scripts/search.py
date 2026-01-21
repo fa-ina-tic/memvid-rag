@@ -2,10 +2,13 @@ import sys
 import io
 from memvid_sdk import use
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+
 
 def search(query: str, **kwargs):
-    with use("basic", "knowledge.mv2", mode="auto", enable_vec=True, read_only=True) as mv:
+    with use(
+        "basic", "knowledge.mv2", mode="auto", enable_vec=True, read_only=True
+    ) as mv:
         ## mv.find function info:
         # """Searches for relevant content using lexical or semantic search.
 
@@ -40,17 +43,15 @@ def search(query: str, **kwargs):
         # Raises:
         #     ValueError: If both query_embedding and embedder are provided simultaneously.
         # """
-        docs = mv.find(
-            query,
-            mode='hybrid',
-            **kwargs
-        )
+        docs = mv.find(query, mode="hybrid", **kwargs)
         return docs
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python scripts/search.py <query> [--k=5] [--snippet_chars=240] [--min_relevancy=0.0] [--adaptive=false]")
+        print(
+            "Usage: python scripts/search.py <query> [--k=5] [--snippet_chars=240] [--min_relevancy=0.0] [--adaptive=false]"
+        )
         sys.exit(1)
 
     # Parse query and kwargs from command line arguments
@@ -83,6 +84,6 @@ if __name__ == "__main__":
     print(f"Total hits: {results.get('total_hits', 0)}")
     print(f"Took: {results.get('took_ms', 0)}ms")
     print("-" * 50)
-    for hit in results.get('hits', []):
+    for hit in results.get("hits", []):
         print(hit)
         print("-" * 50)

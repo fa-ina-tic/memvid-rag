@@ -2,7 +2,8 @@ import sys
 import io
 from memvid_sdk import use
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+
 
 def index(document_title: str, document_label: str, file_path: str, **kwargs):
     """
@@ -18,21 +19,31 @@ def index(document_title: str, document_label: str, file_path: str, **kwargs):
         RuntimeError: If vector embeddings are not enabled or fail to be created
     """
     # Index the document with explicit embedding enabled
-    with use("basic", "knowledge.mv2", mode="auto", read_only=False, enable_vec=True, enable_lex=True) as mv:
+    with use(
+        "basic",
+        "knowledge.mv2",
+        mode="auto",
+        read_only=False,
+        enable_vec=True,
+        enable_lex=True,
+    ) as mv:
         # Ensure embedding is explicitly enabled
         mv.put(
             title=document_title,
             label=document_label,
-            metadata={'source': file_path},
+            metadata={"source": file_path},
             file=file_path,
-            embedder=kwargs.get('embedder', 'embed-v4.0'),
+            embedder=kwargs.get("embedder", "embed-v4.0"),
             enable_embedding=True,  # Explicitly enable embeddings
-            **{k: v for k, v in kwargs.items() if k != 'embedding_model'}
+            **{k: v for k, v in kwargs.items() if k != "embedding_model"},
         )
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        print("Usage: python scripts/index.py <document_title> <document_label> <file_path>")
+        print(
+            "Usage: python scripts/index.py <document_title> <document_label> <file_path>"
+        )
         sys.exit(1)
 
     # Parse required arguments and optional kwargs from command line arguments
