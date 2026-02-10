@@ -9,7 +9,7 @@ This plugin provides semantic search capabilities for PDF documents using vector
 ## Requirements
 
 - **Python**: memvid-sdk installed (`pip install memvid-sdk`)
-- **Cohere API Key**: Required for vector embeddings. Set `COHERE_API_KEY` environment variable before indexing.
+- **OpenAI API Key**: Required for vector embeddings. Set `OPENAI_API_KEY` environment variable before indexing.
 
 ## Commands
 

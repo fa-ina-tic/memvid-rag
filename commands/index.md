@@ -36,7 +36,7 @@ python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf
 
 with optional parameters:
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --embedding_model=embed-v4.0
+python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --embedding_model=openai-large
 ```
 
 ## Requirements
@@ -46,50 +46,14 @@ python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf
 
 ### Supported Embedding Models
 
-#### Built-in Local Model (No API Key Required)
-| Model | Dimensions | Notes |
-|-------|------------|-------|
-| BGE-small-en-v1.5 | 384 | Default model |
+#### OpenAI (Default)
+| Model ID | OpenAI Model | Dimensions | API Key |
+|----------|-------------|------------|---------|
+| `openai-small` | text-embedding-3-small | 1536 | `OPENAI_API_KEY` |
+| `openai-large` | text-embedding-3-large | 3072 | `OPENAI_API_KEY` |
+| `openai-ada` | text-embedding-ada-002 | 1536 | `OPENAI_API_KEY` (legacy) |
 
-#### Local ONNX Models (No API Key Required)
-| Model | Dimensions | Size |
-|-------|------------|------|
-| BGE-small-en-v1.5 | 384 | ~120MB |
-| BGE-base-en-v1.5 | 768 | ~420MB |
-| Nomic-embed-text-v1.5 | 768 | ~530MB |
-| GTE-large | 1024 | ~1.3GB |
-
-#### OpenAI
-| Model | Dimensions | API Key |
-|-------|------------|---------|
-| text-embedding-3-small | 1536 | `OPENAI_API_KEY` |
-| text-embedding-3-large | 3072 | `OPENAI_API_KEY` |
-| text-embedding-ada-002 | 1536 | `OPENAI_API_KEY` (legacy) |
-
-#### Cohere
-| Model | Dimensions | API Key |
-|-------|------------|---------|
-| embed-english-v3.0 | 1024 | `COHERE_API_KEY` |
-| embed-multilingual-v3.0 | 1024 | `COHERE_API_KEY` |
-| embed-english-light-v3.0 | 384 | `COHERE_API_KEY` |
-| embed-multilingual-light-v3.0 | 384 | `COHERE_API_KEY` |
-
-#### Voyage AI
-| Model | Dimensions | API Key |
-|-------|------------|---------|
-| voyage-3 | 1024 | `VOYAGE_API_KEY` |
-| voyage-3-lite | 512 | `VOYAGE_API_KEY` |
-| voyage-code-3 | 1024 | `VOYAGE_API_KEY` |
-
-#### NVIDIA
-| Model | API Key |
-|-------|---------|
-| nvidia/nv-embed-v1 | `NVIDIA_API_KEY` |
-
-#### HuggingFace (Local, Python only)
-| Model | API Key |
-|-------|---------|
-| Any sentence-transformers model (e.g., `all-MiniLM-L6-v2`) | None required |
+The default model is `openai-small`. To use a different model, pass `--embedding_model=<model_id>`.
 
 ### Why Vector Embeddings Are Required
 Unlike lexical-only search (keyword matching), vector embeddings enable:
@@ -97,29 +61,20 @@ Unlike lexical-only search (keyword matching), vector embeddings enable:
 - **Context understanding**: Retrieve relevant information even with different wording
 - **Better accuracy**: More precise results for complex queries
 
-### Setting Up API Keys
-Before indexing, set your API key for the embedding provider you choose:
+### Setting Up API Key
+Before indexing, set the `OPENAI_API_KEY` environment variable:
 
 **Windows (PowerShell)**:
 ```powershell
-$env:COHERE_API_KEY="your-api-key-here"
 $env:OPENAI_API_KEY="your-api-key-here"
-$env:VOYAGE_API_KEY="your-api-key-here"
-$env:NVIDIA_API_KEY="your-api-key-here"
 ```
 
 **Windows (Command Prompt)**:
 ```cmd
-set COHERE_API_KEY=your-api-key-here
 set OPENAI_API_KEY=your-api-key-here
-set VOYAGE_API_KEY=your-api-key-here
-set NVIDIA_API_KEY=your-api-key-here
 ```
 
 **Linux/Mac**:
 ```bash
-export COHERE_API_KEY="your-api-key-here"
 export OPENAI_API_KEY="your-api-key-here"
-export VOYAGE_API_KEY="your-api-key-here"
-export NVIDIA_API_KEY="your-api-key-here"
 ```

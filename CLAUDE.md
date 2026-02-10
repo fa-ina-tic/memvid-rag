@@ -40,11 +40,8 @@ A Claude Code plugin providing local RAG (Retrieval-Augmented Generation) capabi
 - Index file is stored as `knowledge.mv2` in the working directory
 - Currently supports PDF files only
 - Requires API key for cloud embedding providers (set via environment variable)
-- Default embedding model: `embed-v4.0` (Cohere)
+- Default embedding model: `openai-small` (OpenAI text-embedding-3-small)
 
 ## Environment Variables
 
-- `COHERE_API_KEY` - Cohere embeddings
-- `OPENAI_API_KEY` - OpenAI embeddings
-- `VOYAGE_API_KEY` - Voyage AI embeddings
-- `NVIDIA_API_KEY` - NVIDIA embeddings
+- `OPENAI_API_KEY` - OpenAI embeddings (required)

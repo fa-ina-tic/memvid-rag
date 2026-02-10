@@ -33,7 +33,7 @@ def index(document_title: str, document_label: str, file_path: str, **kwargs):
             label=document_label,
             metadata={"source": file_path},
             file=file_path,
-            embedding_model=kwargs.get("embedding_model", "embed-v4.0"),
+            embedding_model=kwargs.get("embedding_model", "openai-small"),
             enable_embedding=True,
         )
 
