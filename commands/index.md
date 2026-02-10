@@ -36,7 +36,7 @@ python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf
 
 with optional parameters:
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --k=10 --mode=semantic
+python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --embedding_model=embed-v4.0
 ```
 
 ## Requirements

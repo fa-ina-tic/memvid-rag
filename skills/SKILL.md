@@ -30,7 +30,7 @@ This plugin provides semantic search capabilities for PDF documents using vector
 
 The search command supports optional parameters:
 - `--k=<number>`: Maximum results to return (default: 5)
-- `--mode=<lex|sem|hybrid>`: Search mode (default: hybrid)
+- `--mode=<lex|sem|auto>`: Search mode (default: auto)
 - `--snippet_chars=<number>`: Max characters per snippet (default: 240)
 - `--min_relevancy=<float>`: Minimum relevancy threshold
 - `--adaptive=<true|false>`: Enable adaptive result count

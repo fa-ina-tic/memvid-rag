@@ -33,9 +33,8 @@ def index(document_title: str, document_label: str, file_path: str, **kwargs):
             label=document_label,
             metadata={"source": file_path},
             file=file_path,
-            embedder=kwargs.get("embedder", "embed-v4.0"),
-            enable_embedding=True,  # Explicitly enable embeddings
-            **{k: v for k, v in kwargs.items() if k != "embedding_model"},
+            embedding_model=kwargs.get("embedding_model", "embed-v4.0"),
+            enable_embedding=True,
         )
 
 

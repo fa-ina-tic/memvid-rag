@@ -43,7 +43,8 @@ def search(query: str, **kwargs):
         # Raises:
         #     ValueError: If both query_embedding and embedder are provided simultaneously.
         # """
-        docs = mv.find(query, mode="hybrid", **kwargs)
+        search_mode = kwargs.pop("mode", "auto")
+        docs = mv.find(query, mode=search_mode, **kwargs)
         return docs
 
 

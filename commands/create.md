@@ -3,15 +3,13 @@ description: Create Index to Use
 ---
 
 # create
-Create `knowledge.mv2` file if it is not exist.
-memvid-sdk is python
+Create `knowledge.mv2` file if it does not exist.
 
-## bash script
-```python
-from memvid_sdk import create
+```bash
+python ${CLAUDE_PLUGIN_ROOT}/scripts/create.py
+```
 
-create(filename = filename,
-        kind = "basic",
-        enable_vec = True,
-        enable_lex = True)
+Optionally specify a custom filename:
+```bash
+python ${CLAUDE_PLUGIN_ROOT}/scripts/create.py "custom_name.mv2"
 ```
