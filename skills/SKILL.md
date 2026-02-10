@@ -10,6 +10,10 @@ This plugin provides semantic search capabilities for PDF documents using vector
 
 - **Python**: memvid-sdk installed (`pip install memvid-sdk`)
 - **OpenAI API Key**: Required for vector embeddings. Set `OPENAI_API_KEY` environment variable before indexing.
+- **Document parsing libraries**: Additional Python libraries are needed depending on the file format:
+  - PDF: `pypdf` (`uv add pypdf`)
+  - DOCX: `python-docx` (`uv add python-docx`)
+  - XLSX: `openpyxl` (`uv add openpyxl`)
 
 ## Commands
 

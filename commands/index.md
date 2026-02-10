@@ -41,6 +41,17 @@ python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf
 
 ## Requirements
 
+### Document Parsing Libraries
+The indexing script uses `put_file()` which requires Python libraries to extract text from documents. Install the appropriate library for your file format:
+
+| Format | Library | Install |
+|--------|---------|---------|
+| PDF | `pypdf` | `uv add pypdf` |
+| DOCX | `python-docx` | `uv add python-docx` |
+| XLSX | `openpyxl` | `uv add openpyxl` |
+
+If the required library is not installed, indexing will fail with a text extraction error.
+
 ### Vector Embeddings (REQUIRED)
 **This system REQUIRES vector embeddings for semantic search.** The indexing script will fail if embeddings cannot be created.
 
