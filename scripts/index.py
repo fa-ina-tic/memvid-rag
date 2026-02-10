@@ -27,14 +27,12 @@ def index(document_title: str, document_label: str, file_path: str, **kwargs):
         enable_vec=True,
         enable_lex=True,
     ) as mv:
-        # Ensure embedding is explicitly enabled
-        mv.put(
-            title=document_title,
+        mv.put_file(
+            file_path,
             label=document_label,
-            metadata={"source": file_path},
-            file=file_path,
-            embedding_model=kwargs.get("embedding_model", "openai-small"),
+            metadata={"source": file_path, "title": document_title},
             enable_embedding=True,
+            embedding_model=kwargs.get("embedding_model", "openai-small"),
         )
 
 
