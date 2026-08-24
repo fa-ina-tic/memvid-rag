@@ -11,8 +11,10 @@ Search documents from index file(*.mv2).
 Execute the search script with user's question:
 
 ```bash
-uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/search.py "$ARGUMENTS"
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/search.py $ARGUMENTS
 ```
+
+Note: `$ARGUMENTS` must NOT be quoted — the script treats `--key=value` words as options and joins the remaining words into the query. Quoting would turn options into literal query text.
 
 ## Examples
 - `/memvid-rag:search Why did we choose React?` - Search context about technology decisions
