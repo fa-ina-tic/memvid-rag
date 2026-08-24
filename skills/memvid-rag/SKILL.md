@@ -1,3 +1,8 @@
+---
+name: memvid-rag
+description: Local RAG over PDF documents using memvid. Use when the user wants to index documents into a local knowledge base, semantically search previously indexed documents, or check the status of the knowledge base.
+---
+
 # memvid-rag
 
 A simple local RAG (Retrieval-Augmented Generation) system based on [memvid](https://github.com/Olow304/memvid-sdk).
