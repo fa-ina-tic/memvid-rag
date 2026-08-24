@@ -6,5 +6,5 @@ description: Show the current status of the RAG system
 Show the current status of the RAG system.
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/status.py
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/status.py
 ```

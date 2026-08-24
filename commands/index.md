@@ -31,12 +31,12 @@ Run the index script with the parameters determined from Step 2:
 
 **Example**:
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf"
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf"
 ```
 
 with optional parameters:
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --embedding_model=openai-large
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --embedding_model=openai-large
 ```
 
 ## Requirements

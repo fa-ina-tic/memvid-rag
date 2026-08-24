@@ -6,10 +6,10 @@ description: Create Index to Use
 Create `knowledge.mv2` file if it does not exist.
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/create.py
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/create.py
 ```
 
 Optionally specify a custom filename:
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/create.py "custom_name.mv2"
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/create.py "custom_name.mv2"
 ```

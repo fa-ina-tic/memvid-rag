@@ -11,7 +11,7 @@ Search documents from index file(*.mv2).
 Execute the search script with user's question:
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/search.py "$ARGUMENTS"
+uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/search.py "$ARGUMENTS"
 ```
 
 ## Examples
