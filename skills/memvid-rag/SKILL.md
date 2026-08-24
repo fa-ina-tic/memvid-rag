@@ -43,6 +43,8 @@ The search command supports optional parameters:
 - `--snippet_chars=<number>`: Max characters per snippet (default: 240)
 - `--min_relevancy=<float>`: Minimum relevancy threshold
 - `--adaptive=<true|false>`: Enable adaptive result count
+- `--file=<path>`: Use a custom index file (default: `knowledge.mv2`; also supported by index)
+- `--query_embedding_model=<model_id>`: Must match the model used at index time (default: `openai-small`)
 
 ## Example Usage
 

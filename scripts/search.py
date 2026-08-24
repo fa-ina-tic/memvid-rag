@@ -6,9 +6,11 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 
 def search(query: str, **kwargs):
-    with use(
-        "basic", "knowledge.mv2", mode="auto", enable_vec=True, read_only=True
-    ) as mv:
+    filename = kwargs.pop("file", "knowledge.mv2")
+    # Must match the model used at index time (index.py default: openai-small),
+    # otherwise query/document embedding dimensions differ and results are garbage.
+    kwargs.setdefault("query_embedding_model", "openai-small")
+    with use("basic", filename, mode="auto", enable_vec=True, read_only=True) as mv:
         ## mv.find function info:
         # """Searches for relevant content using lexical or semantic search.
 

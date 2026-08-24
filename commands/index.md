@@ -39,6 +39,9 @@ with optional parameters:
 uv run --project ${CLAUDE_PLUGIN_ROOT} ${CLAUDE_PLUGIN_ROOT}/scripts/index.py "Document Title" "Label" "file.pdf" --embedding_model=openai-large
 ```
 
+- `--file=<path>` - Index into a custom index file (default: `knowledge.mv2`)
+- `--embedding_model=<model_id>` - Embedding model (default: `openai-small`). If you change this, searches must pass the same model via `--query_embedding_model=<model_id>`.
+
 ## Requirements
 
 ### Document Parsing Libraries

@@ -21,7 +21,7 @@ def index(document_title: str, document_label: str, file_path: str, **kwargs):
     # Index the document with explicit embedding enabled
     with use(
         "basic",
-        "knowledge.mv2",
+        kwargs.pop("file", "knowledge.mv2"),
         mode="auto",
         read_only=False,
         enable_vec=True,

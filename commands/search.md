@@ -23,6 +23,8 @@ Note: `$ARGUMENTS` must NOT be quoted — the script treats `--key=value` words 
 
 you can pass arguments to modify search options:
 - `/memvid-rag:search Why did we choose React? --k=5 --mode=sem` - Search context about technology decisions with top-k=5 documents in semantic search mode
+- `--file=<path>` - Search a custom index file (default: `knowledge.mv2`)
+- `--query_embedding_model=<model_id>` - Must match the model used at index time (default: `openai-small`). Pass this if the documents were indexed with a different model (e.g. `openai-large`).
 
 ## Response Format
 - Provide documents based on stored memories
